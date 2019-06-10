@@ -1,7 +1,8 @@
 const path = require('path');
 module.exports = {
     entry: './src/index.ts',
-    devtool: 'inline-source-map',
+    mode: 'production',
+    // devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -15,7 +16,24 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js']
     },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[chunkhash:8].js',
         path: path.resolve(__dirname, 'dist')
-    }
+    },
+    optimization: {
+        runtimeChunk: true,
+        splitChunks: {
+            chunks: 'all',
+            maxInitialRequests: Infinity,
+            minSize: 0,
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name(module) {
+                        const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                        return `npm.${packageName.replace('@', '')}`;
+                    },
+                }        
+            },
+        }
+    },
 };

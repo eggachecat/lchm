@@ -6,13 +6,13 @@ import { AutocompleteController } from "../src/AutoCompleteController";
 function displayAutoCompleteItems(items: AutoCompleteItem[]) {
     const $list = document.getElementById("list")
     while ($list.firstChild) {
-        $list.removeChild($list.firstChild);
+      $list.removeChild($list.firstChild);
     }
     items.forEach(item => {
-        const node = document.createElement("li");
-        const textnode = document.createTextNode(item.text);
-        node.appendChild(textnode);
-        $list.appendChild(node);
+      const node = document.createElement("li");
+      const textnode = document.createTextNode(item.text);
+      node.appendChild(textnode);
+      $list.appendChild(node);
     });
 }
 
