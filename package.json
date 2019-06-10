@@ -1,7 +1,7 @@
 {
-  "name": "lchm",
+  "name": "lchep",
   "version": "1.0.1",
-  "description": "",
+  "description": "lc hire engineering problem",
   "main": "index.js",
   "scripts": {
     "lint": "tslint \"src/**/*.ts\" --project tsconfig.json",
