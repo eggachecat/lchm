@@ -1,6 +1,6 @@
 {
   "name": "lchep",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "lc hire engineering problem",
   "main": "index.js",
   "scripts": {
