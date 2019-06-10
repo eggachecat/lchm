@@ -7,3 +7,10 @@ install:
 script:
   - npm run test
   - npm run lint
+
+deploy:
+  provider: script
+  script: "cp .npmrc.template $HOME/.npmrc && npm publish"
+  skip_cleanup: true
+  on:
+    tags: true
